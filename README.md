@@ -1,2 +1,2 @@
-# default
-default setting
+# TIL
+Today I Learned
