@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Web Component</title>
+<script>
+    class PopupInfo extends HTMLElement {
+        constructor() {
+            super();
+
+            const template = document.getElementById('popup-info');
+            const templateContent = template.content;
+            const shadow = this.attachShadow({ mode: 'open' });
+
+            shadow.append(templateContent.cloneNode(true)); // (1)
+        }
+    }
+
+    customElements.define('popup-info', PopupInfo);
+</script>
+</head>
+<body>
+    <template id="popup-info">
+        <h1><slot name="title">제목</slot></h1>
+        <p><slot name="content">내용</slot></p>
+    </template>
+    <h1>Shadow DOM 외부의 h1 요소</h1>
+    <popup-info>
+        <span slot="title">첫 번째 제목</span>
+        <span slot="content">첫 번째 내용</span>
+    </popup-info>
+    <popup-info>
+        <span slot="title">두 번째 제목</span>
+        <span slot="content">두 번째 내용</span>
+    </popup-info>
+    <popup-info></popup-info>
+</body>
+</html>
