@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="Author" content="KimTaeKwon">
+    <meta name="Publisher" content="KimTaekwon">
+    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
+    <meta name="Copyright" content="webontab">
+    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
+    <meta property="og:site_name" content="웹온탭">
+    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
+    <meta property="og:url" content="http://www.webontab.net/">
+    <title>웹온탭 | details</title>
+    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
+    <link rel="canonical" href="http://www.webontab.net/">
+    <link rel="stylesheet" href="default.css">
+    <style>
+        details {
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            padding: .5em .5em 0;
+        }
+        summary {
+            font-weight: bold;
+            margin: -.5em -.5em 0;
+            padding: .5em;
+        }
+        details[open] {
+            padding: .5em;
+        }
+        details[open] summary {
+            border-bottom: 1px solid #aaa;
+            margin-bottom: .5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>details</h1>
+    <div class="card">
+        <h2 class="numbered">시작</h2>
+        <details>
+            <summary>Details</summary>
+            Something small enough to escape casual notice.
+        </details>
+        <p>
+            HTML <code>details</code> 요소는 "열림" 상태일 때만 내부 정보를 보여주는 정보 공개 위젯을 생성합니다. 요약이나 레이블은 <code>summary</code> 요소를 통해 제공할 수 있습니다.
+            정보 공개 위젯은 보통 레이블 옆의 작은 삼각형이 돌아가면서 열림/닫힘 상태를 나타냅니다. <code>details</code> 요소의 첫 번째 자식이 <code>summary</code> 요소라면, <code>summary</code>의 콘텐츠를 위젯의 레이블로 사용합니다.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2 class="numbered">이벤트</h2>
+        <pre>
+            <code>
+details.addEventListener("toggle", event => {
+    if (details.open) {
+        /* the element was toggled open */
+    } else {
+        /* the element was toggled closed */
+    }
+});
+            </code>
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2 class="numbered">예제</h2>
+        <h3 class="numbered">열려있는 상태로 만들기</h3>
+        <details open>
+            <summary>System Requirements</summary>
+            <p>Requires a computer running an operating system. The computer
+            must have some memory and ideally some kind of long-term storage.
+            An input device as well as some form of output device is
+            recommended.</p>
+        </details>
+        <h3 class="numbered">외형 바꾸기</h3>
+        <pre>
+            <code>
+details {
+font: 16px "Open Sans", Calibri, sans-serif;
+width: 620px;
+}
+
+details > summary {
+padding: 2px 6px;
+width: 15em;
+background-color: #ddd;
+border: none;
+box-shadow: 3px 3px 4px black;
+cursor: pointer;
+}
+
+details > p {
+border-radius: 0 0 10px 10px;
+background-color: #ddd;
+padding: 2px 6px;
+margin: 0;
+box-shadow: 3px 3px 4px black;
+}
+            </code>
+        </pre>
+
+        <h3 class="numbered">위젯 바꾸기</h3>
+        <pre>
+            <code>
+details {
+font: 16px "Open Sans", Calibri, sans-serif;
+width: 620px;
+}
+
+details > summary {
+padding: 2px 6px;
+width: 15em;
+background-color: #ddd;
+border: none;
+box-shadow: 3px 3px 4px black;
+cursor: pointer;
+list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+display: none;
+}
+
+details > p {
+border-radius: 0 0 10px 10px;
+background-color: #ddd;
+padding: 2px 6px;
+margin: 0;
+box-shadow: 3px 3px 4px black;
+}
+details[open] {
+    padding: .5em;
+}
+            </code>
+        </pre>
+    </div>
+</body>
+</html>
