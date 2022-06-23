@@ -23,152 +23,65 @@
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
     <link rel="canonical" href="http://www.webontab.net/">
     <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="default.css">
+    <script async src="web-component.js"></script>
+</head>
+<body>
     <style>
         h1 {color: red;}
     </style>
-    <script>
-        // class PopupInfo extends HTMLElement {
-        //     constructor() {
-        //         super();
-    
-        //         const template = document.getElementById('popup-info');
-        //         const templateContent = template.content;
-        //         const shadow = this.attachShadow({ mode: 'open' });
-    
-        //         shadow.append(templateContent.cloneNode(true));
-        //     }
-        // }
-    
-        // customElements.define('popup-info', PopupInfo);
-    </script>
-</head>
-<body>
-
     <h1>Web Component</h1>
     <div class="card">
-        <h2 class="numbered">Custom Elements</h2>
-
         <samp>
             <popup-info></popup-info>
             <popup-info></popup-info>
         </samp>
-
-        <script>
-            class PopupInfo extends HTMLElement { // (1)
-                constructor() {
-                    super(); // (2)
-
-                    const title = document.createElement('h1');
-                    const content = document.createElement('p');
-
-                    title.innerHTML = '제목';
-                    content.innerHTML = '내용';
-
-                    this.append(title); // (3)
-                    this.append(content);
-                }
-            }
-
-            customElements.define('popup-info', PopupInfo); // (4)
-        </script>
-        <h3 class="numbered">Description</h3>
-        <ol>
-            <li>사용자 정의 요소에서 사용할 클래스를 생성해 준다. <code>HTMLElement</code> 인터페이스를 상속받고 있는데, HTML 요소라고 생각하면 된다.</li>
-            <li>사용자 정의 요소를 정의할 때 실행할 코드를 적는 곳이다 <code>super()</code>는 <code>constructor</code> 내에서 항상 맨 첫 번째로 호출해야 한다.</li>
-            <li>여기서 this는 사용자 정의 요소다. 즉, <code>PopupInfo</code>에 <code>title</code>과 content를 삽입한다는 뜻이다.</li>
-            <li>
-                define 메서드는 새로운 사용자 정의 요소를 생성한다. <code>customElements</code>는 <code>CustomElementRegistry</code> 인터페이스다. CustomElementRegistry는 사용자 정의 요소의 컨트롤러로 이 개체를 사용해야 사용자 정의 요소를 등록하고 조회할 수 있다. <br>
-                첫 번째 매개변수는 사용자 정의 요소의 이름을 정의하고, 두 번째 매개변수는 생성할 사용자 정의 요소다. 즉, <code>&lt;popup-info&gt;</code>라는 요소명으로 PopupInfo라는 사용자 정의 요소를 생성하겠다는 뜻이다.
-            </li>
-        </ol>
     </div>
 
     <div class="card">
-        <h2 class="numbered">Shadow DOM</h2>
-
-        <!-- <h1>Shadow DOM 외부의 h1 요소</h1> -->
+        <h1>Shadow DOM 외부의 h1 요소</h1>
         <!-- 기존 코드 -->
         <samp>
-            <popup-info></popup-info>
-            <popup-info></popup-info>
+            <popup-info-02></popup-info-02>
+            <popup-info-02></popup-info-02>
         </samp>
-
-        <!-- <script>
-            class PopupInfo extends HTMLElement {
-                constructor() {
-                    super();
-
-                    const shadow = this.attachShadow({ mode: 'open' }); // (1)
-                    const title = document.createElement('h1');
-                    const content = document.createElement('p');
-
-                    title.innerHTML = '제목';
-                    content.innerHTML = '내용';
-
-                    shadow.append(title); // (2)
-                    shadow.append(content);
-                }
-            }
-
-            customElements.define('popup-info', PopupInfo);
-        </script> -->
-        <h3 class="numbered">Description</h3>
-        <ol>
-            <li>
-                attachShadow 메서드를 사용하여 popup-info를 Shadow DOM Tree와 연결하고, 참조(this.shadowRoot)를 반환한다. 매개변수로 mode를 줄 수 있는데, Shadow Root 요소를 Root 외부의 JavaScript에서 액세스할 수 있냐, 없냐를 설정하는 부분이다. open과 close 두 가지로 설정할 수 있다.<br>
-                close로 할 경우 맨 아래 define 메서드에서 Root를 액세스할 수 없어 요소를 생성할 수 없다. 그래서 close는 잘 사용하지 않는다.
-            </li>
-            <li>
-                this에서 shadow로 수정했다. 이렇게 해야 Shadow Tree에 속해 외부 문서와 분리될 수 있다. <br>
-                Shadow DOM이 있을 경우에는 사용자 정의 요소의 자식 요소 대신 Shadow Tree가 렌더링 된다. constructor 안에 다음과 같이 내용을 추가해도 렌더링 되지 않는다.
-            </li>
-        </ol>
     </div>
 
+    <div class="card">
+        <template id="popup-info-03">
+            <h1>제목</h1>
+            <p>내용</p>
+        </template>
+        <h1>Shadow DOM 외부의 h1 요소</h1>
+        <popup-info-03></popup-info-03>
+        <popup-info-03></popup-info-03>
+    </div>
 
+    <div class="card">
+        <template id="popup-info-04">
+            <h1><slot name="title">제목</slot></h1>
+            <p><slot name="content">내용</slot></p>
+        </template>
+        <h1>Shadow DOM 외부의 h1 요소</h1>
+        <popup-info-04>
+            <span slot="title">첫 번째 제목</span>
+            <span slot="content">첫 번째 내용</span>
+        </popup-info-04>
+        <popup-info-04>
+            <span slot="title">두 번째 제목</span>
+            <span slot="content">두 번째 내용</span>
+        </popup-info-04>
+        <popup-info-04></popup-info-04>
+    </div>
+    
+    
 
-
-
-
-
-
-
-
-
-    <!-- <template id="popup-info">
-        <h1><slot name="title">제목</slot></h1>
-        <p><slot name="content">내용</slot></p>
-    </template>
-    <h1>Shadow DOM 외부의 h1 요소</h1>
-    <popup-info>
-        <span slot="title">첫 번째 제목</span>
-        <span slot="content">첫 번째 내용</span>
-    </popup-info>
-    <popup-info>
-        <span slot="title">두 번째 제목</span>
-        <span slot="content">두 번째 내용</span>
-    </popup-info>
-    <popup-info></popup-info> -->
+    
+        
 
     <p>참고 https://blog.naver.com/sun_zero2/222524565719</p>
     <p>참고 https://alexband.tistory.com/53</p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
 </body>
 </html>
