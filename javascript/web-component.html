@@ -32,19 +32,23 @@
     </style>
     <h1>Web Component</h1>
     <div class="card">
-        <samp>
-            <popup-info></popup-info>
-            <popup-info></popup-info>
-        </samp>
+        <popup-info></popup-info>
+        <popup-info></popup-info>
     </div>
+
+    <div class="card">
+        <custom-ele title="WC"></custom-ele>
+        <div>
+          <button id="delete-wc">제거</button>
+        </div>
+    </div>
+
 
     <div class="card">
         <h1>Shadow DOM 외부의 h1 요소</h1>
         <!-- 기존 코드 -->
-        <samp>
-            <popup-info-02></popup-info-02>
-            <popup-info-02></popup-info-02>
-        </samp>
+        <popup-info-02></popup-info-02>
+        <popup-info-02></popup-info-02>
     </div>
 
     <div class="card">
@@ -55,6 +59,20 @@
         <h1>Shadow DOM 외부의 h1 요소</h1>
         <popup-info-03></popup-info-03>
         <popup-info-03></popup-info-03>
+    </div>
+
+    <div class="card">
+        <custom-ele-02 title="WC">
+            <h1 slot="second">Custom Content</h1>
+            <h2 slot="first">Custom Content</h1>
+        </custom-ele-02>
+    </div>
+
+    <div class="card">
+        <custom-ele-03 title="WC">
+            <h1 slot="second">Custom Content</h1>
+            <h2 slot="first">Custom Content</h1>
+        </custom-ele-03>
     </div>
 
     <div class="card">
@@ -74,7 +92,12 @@
         <popup-info-04></popup-info-04>
     </div>
     
-    
+    <div class="card">
+        <template id="wc-template">
+            <h1>WC - Template</h1>
+        </template>
+        <div id="main"></div>
+    </div>
 
     
         
