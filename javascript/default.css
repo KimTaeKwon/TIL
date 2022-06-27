@@ -1,0 +1,33 @@
+body {font-size: 14px; line-height: 1.5; background-color: #161b22; color: #fff;}
+code {color: blue;}
+li + li {margin-top: 0.5em;}
+
+h1 {
+counter-reset: h2;
+}
+
+h2.numbered {
+counter-reset: h3;
+}
+
+h3.numbered {
+counter-reset: h4;
+}
+
+h2.numbered::before {
+content: counter(h2) ' ';
+counter-increment: h2;
+}
+
+h3.numbered::before {
+content: counter(h2) '.' counter(h3) ' ';
+counter-increment: h3;
+}
+
+h4.numbered::before {
+content: counter(h2) '.' counter(h3) '.' counter(h4) ' ';
+counter-increment: h4;
+}
+
+.card {border: 1px solid #30363d; border-radius: 2em; padding: 2em; overflow: hidden;}
+.card + .card {margin-top: 2em;}
