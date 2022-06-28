@@ -106,16 +106,29 @@ customElements.define('custom-ele', CustomEle);
 title 이 변경되는 것을 볼 수 있습니다.
 attributeChangedCallback() 과 observedAttrobutes() 없이 실행하면 해당 속성 값을 변경해도 반영되지 않습니다.
 삭제 버튼을 눌러 커스텀 엘리먼트를 없애면 disconnectedCallback() 이 실행되는 것 또한 볼 수 있습니다.
-주의할 점은 custom elemet 의 이름에 꼭 ‘-’ 가 포함되어여 합니다.
+주의할 점은 custom elemet 의 이름에 꼭 ‘-’ 가 포함되어야 합니다.
 
 
 
 ## 2. Shadow DOM
 * Shadow DOM은 외부와 독립된 DOM이라고 보면 된다. 이 안에 생성된 HTML 요소는 외부 문서(e.g. index.html)와는 완전히 분리됐기 때문에 외부 문서에 적용된 CSS가 적용되지 않는 등의 이점이 있다. 예를 들어, index.html에 h1의 글자색을 blue로 설정한다고 해도 Shadow DOM 안에 생성된 h1에는 글자색이 적용되지 않는다.
+* 쉐도우 돔은 마크업 구조와 스타일을 다른 코드 또는 컴포넌트, 메인페이지와 분리하여 충돌하지 않도록 하고, 기본 DOM 구조에 별도로 첨부할 수 있도록 해줍니다.
+ShadowDOM 은 일반적으로 DOM 노드를 만들어 다른 요소의 자식으로 추가하는 것과는 달리, 요소에 연결은 되지만 독립된 범위가 지정된 DOM 트리를 만듭니다.
 
 ![Shadow DOM](https://blog.kakaocdn.net/dn/lfFWb/btqyEzVZpXZ/uKqUOvWC5nzCloWB3uVfp0/img.png)
 
+* Shadow Host 가 생성되면 해당 DOM 트리의 shadow root 가 생성되고 그밑으로 독립적으로 생성된 element 들이 존재하게 됩니다.
+
+> ShaodwDOM 의 특징
+> - 자체적인 DOM 모델에서 작동한다. 일반적인 document.querySelector 로 Shaodw DOM 의 자식에 접근 할 수 없다.
+> - Shadow DOM 의 스타일규칙 역시 범위가 해당 Shadow DOM 으로 국한되어 있다.
+> - 브라우저가 이미 자체적으로 ShadowDOM 을 호출하는 있는 요소는 Shadow DOM 으로 호스팅 할 수 없다.
+
+
 * Shadow DOM은 Tree로 생각할 수 있다. Shadow Root는 Shadow Tree의 상단이고, Shadow Tree가 연결된 요소(e.g. popup-info)는 Shadow Host라고 한다. Shadow Host에는 Shadow Root를 참조하는 shadowRoot라는 속성이 있고, Shadow Root에는 Shadow Host의 요소를 식별하는 host 속성이 있다.
+
+### 2.1. Example
+
 ``` html
 <h1>Shadow DOM 외부의 h1 요소</h1>
 <popup-info></popup-info>
@@ -140,23 +153,80 @@ class PopupInfo extends HTMLElement {
 
 customElements.define('popup-info', PopupInfo);
 ```
-### 2.1. Description
+### 2.1. Notes
 1. `attachShadow` 메서드를 사용하여 `popup-info`를 Shadow DOM Tree와 연결하고, 참조(this.shadowRoot)를 반환한다. 매개변수로 `mode`를 줄 수 있는데, Shadow Root 요소를 Root 외부의 JavaScript에서 액세스할 수 있냐, 없냐를 설정하는 부분이다. `open`과 `close` 두 가지로 설정할 수 있다.
 `close`로 할 경우 맨 아래 `define` 메서드에서 Root를 액세스할 수 없어 요소를 생성할 수 없다. 그래서 close는 잘 사용하지 않는다.
 2. `this`에서 `shadow`로 수정했다. 이렇게 해야 Shadow Tree에 속해 외부 문서와 분리될 수 있다.
 Shadow DOM이 있을 경우에는 사용자 정의 요소의 자식 요소 대신 Shadow Tree가 렌더링 된다. `constructor` 안에 다음과 같이 내용을 추가해도 렌더링 되지 않는다.
 
-> Shadow DOM이 있을 경우에는 사용자 정의 요소의 자식 요소 대신 Shadow Tree가 렌더링 된다. constructor 안에 다음과 같이 내용을 추가해도 렌더링 되지 않는다.
+> Shadow DOM이 있을 경우에는 사용자 정의 요소의 자식 요소 대신 Shadow Tree가 렌더링 된다. `constructor` 안에 다음과 같이 내용을 추가해도 렌더링 되지 않는다.
+
+
 ``` javascript
 const h1 = document.createElement('h1');
 h1.innerHTML = '나올까요?';
 this.append(h1);
 ```
 
+### 2.2. Example
+
+``` html
+<custom-ele-02 title="WC">
+    <h1 slot="second">Custom Content</h1>
+    <h2 slot="first">Custom Content</h1>
+</custom-ele-02>
+```
+
+``` javascript
+class CustomEle02 extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' }); // 1.
+      this.shadowRoot.innerHTML = `
+          <slot name="first"></slot>
+          <slot name="second"></slot>
+        ` // 2.
+    }
+}
+window.customElements.define('custom-ele-02', CustomEle02);
+```
+
+### 2.2. Notes
+1. `attachShadow` 를 이용하여 Shadow Tree 를 생성
+2. shadow root 에 요소들을 추가
+
+### 2.3. Example
+
+``` html
+<custom-ele-03 title="WC">
+    <h1 slot="second">Custom Content</h1>
+    <h2 slot="first">Custom Content</h1>
+</custom-ele-03>
+```
+
+``` javascript
+class CustomEle03 extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      this.shadowRoot.innerHTML = `
+        <style>h1{ color: blue; }</style>
+        <h1>Custom Content</h1>
+        <slot name="first"></slot>
+        <slot name="second"></slot>
+      ` // 1.
+    }
+}
+window.customElements.define('custom-ele-03', CustomEle03);
+```
+### 2.3. Notes
+1. Style 같은 경우도 위 특징에 설명 했듯이 외부 스타일의 영향을 받지 않고 독립적으로 지정이 가능
+
+
 ## 3. HTML templates
 `<template>`이나 `<slot>` 요소를 사용하면 렌더링 된 페이지에 표시되지 않는 마크업 템플릿을 작성할 수 있다.
 
-우리는 계속해서 constructor 메서드 안에 document.createElement를 사용해서 요소를 생성하고, innerHTML로 문구를 설정하고, appendChild로 요소를 삽입해왔다. 요소 하나를 추가하기 위해서 많은 작업이 필요하다. 이를 간단하게 해줄 수 있는 것이 template이다.
+우리는 계속해서 `constructor` 메서드 안에 `document.createElement`를 사용해서 요소를 생성하고, `innerHTML`로 문구를 설정하고, `appendChild`로 요소를 삽입해왔다. 요소 하나를 추가하기 위해서 많은 작업이 필요하다. 이를 간단하게 해줄 수 있는 것이 template이다.
 ``` html
 <template id="popup-info-03">
     <h1>제목</h1>
@@ -205,8 +275,8 @@ customElements.define('popup-info-03', PopupInfo03);
 </popup-info-04>
 <popup-info-04></popup-info-04>
 ```
-> template 안 내용을 변경하고 싶은 요소에 slot 요소를 추가하고 name 속성으로 slot과 연결할 이름을 설정해 준다.
-그리고 사용자 정의 요소 안에 span 요소를 추가하고 slot 속성으로 slot 이름과 매칭한다.
+> `template` 안 내용을 변경하고 싶은 요소에 `slot` 요소를 추가하고 `name` 속성으로 `slot`과 연결할 이름을 설정해 준다.
+그리고 사용자 정의 요소 안에 span 요소를 추가하고 `slot` 속성으로 `slot` 이름과 매칭한다.
 
 ``` html
 <template id="wc-template">
@@ -224,4 +294,4 @@ if ('content' in document.createElement('template')) { // (1)
 }
 ```
 1. 현재 브라우저에서 Template 의 지원 여부를 확인
-2. importNode 를 사용하여 복사본을 만든 뒤 페이지에 붙이며 활성화를 시작
+2. `importNode` 를 사용하여 복사본을 만든 뒤 페이지에 붙이며 활성화를 시작
