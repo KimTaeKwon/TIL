@@ -26,12 +26,6 @@ const users01 = [{
 users01.map(users01 => {
     console.log(users01.adress?.adressLine1);
 });
-// document.querySelector('#example01').innerHTML = users01.name;
-document.querySelector('#example01').innerHTML = users01.map(users01.name);
-// document.querySelector('#example01').innerHTML = users01.map(getFullName);
-// function getFullName(item) {
-//     return [users01.adress?.adressLine1].join(" ");
-// }
 
 let aa;
 console.log(aa?.bb); // 출력: undefined
