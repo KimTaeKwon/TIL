@@ -16,86 +16,20 @@
     <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
     <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
     <meta property="og:url" content="http://www.webontab.net/">
-    <title>웹온탭 | Web Component</title>
+    <title>웹온탭 |Optional Chaning</title>
     <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
     <link rel="canonical" href="http://www.webontab.net/">
     <link rel="stylesheet" href="default.css">
-    <script async src="web-component.js"></script>
+    <script async src="optional-chaning.js"></script>
 </head>
 <body>
-    <style>
-        h1 {color: red;}
-    </style>
-    <h1>Web Component</h1>
+    <h1>Optional Chaning</h1>
     <div class="card">
-        <popup-info></popup-info>
-        <popup-info></popup-info>
+        <div id="example01"></div>
     </div>
-
-    <div class="card">
-        <custom-ele title="WC"></custom-ele>
-        <div>
-          <button id="delete-wc">제거</button>
-        </div>
-    </div>
-
-
-    <div class="card">
-        <h1>Shadow DOM 외부의 h1 요소</h1>
-        <!-- 기존 코드 -->
-        <popup-info-02></popup-info-02>
-        <popup-info-02></popup-info-02>
-    </div>
-
-    <div class="card">
-        <template id="popup-info-03">
-            <h1>제목</h1>
-            <p>내용</p>
-        </template>
-        <h1>Shadow DOM 외부의 h1 요소</h1>
-        <popup-info-03></popup-info-03>
-        <popup-info-03></popup-info-03>
-    </div>
-
-    <div class="card">
-        <custom-ele-02 title="WC">
-            <h1 slot="second">Custom Content</h1>
-            <h2 slot="first">Custom Content</h1>
-        </custom-ele-02>
-    </div>
-
-    <div class="card">
-        <custom-ele-03 title="WC">
-            <h1 slot="second">Custom Content</h1>
-            <h2 slot="first">Custom Content</h1>
-        </custom-ele-03>
-    </div>
-
-    <div class="card">
-        <template id="popup-info-04">
-            <h1><slot name="title">제목</slot></h1>
-            <p><slot name="content">내용</slot></p>
-        </template>
-        <h1>Shadow DOM 외부의 h1 요소</h1>
-        <popup-info-04>
-            <span slot="title">첫 번째 제목</span>
-            <span slot="content">첫 번째 내용</span>
-        </popup-info-04>
-        <popup-info-04>
-            <span slot="title">두 번째 제목</span>
-            <span slot="content">두 번째 내용</span>
-        </popup-info-04>
-        <popup-info-04></popup-info-04>
-    </div>
-    
-    <div class="card">
-        <template id="wc-template">
-            <h1>WC - Template</h1>
-        </template>
-        <div id="main"></div>
-    </div>
+    <!-- https://blog.naver.com/hanirunn/222773242607 -->
 </body>
 </html>
