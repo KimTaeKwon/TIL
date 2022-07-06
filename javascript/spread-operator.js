@@ -25,14 +25,23 @@ let array2 = {a:1, b:2};
 let array3 = {...array2, c:3};
 console.log(array3);
 
-let person = {
+let person1 = {
+    hi : function() {
+        console.log('hello');
+    }
+}
+let person2 = {
     hi : function() {
         console.log(this.name + 'hello');
     }
 }
-let person2 = {
+let person3 = {
     name : 'TK'
 }
-console.log(person2);
-console.log(person.hi.apply(person2));
-console.log(person.hi());
+console.log(person1);
+console.log(person3);
+person2.hi();
+person2.hi.apply(person3);
+
+person2.hi.apply(person3, [1,2]); // call과 비슷함, apply는 파라미터를 array 형태로 적용 가능
+person2.hi.call(person3, 1,2);
