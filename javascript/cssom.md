@@ -1,4 +1,4 @@
-# [importNode](https://kimtaekwon.github.io/TIL/javascript/cssom.html)
+# [CSSOM](https://kimtaekwon.github.io/TIL/javascript/cssom.html)
 
 ## CSS 제어하기 - CSSOM : CSS Object Model
 
