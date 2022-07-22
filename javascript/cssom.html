@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="Author" content="KimTaeKwon">
+    <meta name="Publisher" content="KimTaekwon">
+    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
+    <meta name="Copyright" content="webontab">
+    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
+    <meta property="og:site_name" content="웹온탭">
+    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
+    <meta property="og:url" content="http://www.webontab.net/">
+    <title>웹온탭 | CSSOM : CSS Object Model</title>
+    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
+    <link rel="canonical" href="http://www.webontab.net/">
+    <link rel="stylesheet" href="default.css">
+    <script async src="cssom.js"></script>
+</head>
+<body>
+    <h1>CSSOM : CSS Object Model</h1>
+    <div class="card">
+        <div id="example01"></div>
+    </div>
+
+    <div class="card">
+        <div id="example02">
+            계산된(computed) 스타일 가져오기
+        </div>
+    </div>
+
+    <div class="card">
+        <style>
+            .box::before {display: block; width: 50px; content: '가상요소';}
+        </style>
+        <div id="example03">
+            <p class="box">가상 요소(pseudo-element)에 접근</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div id="example04">
+            setProperty(), getPropertyValue(), item(), removeProperty()
+        </div>
+    </div>
+
+    <div class="card">
+        <div id="example05"  style="border: solid 1px red !important;">
+            속성의 우선순위 설정
+        </div>
+    </div>
+</body>
+</html>
