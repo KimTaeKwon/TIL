@@ -97,3 +97,39 @@ itemList.appendChild(li);
 
 
 // document.querySelector('#example07 .item-list').appendChild(li);
+
+// var phone_number = ["01033334444","027778888"];
+var phone_number = '01033334444';
+function solution() {
+    var answer = '';
+    
+    // var firstNum02 = phone_number.slice(0,firstNum);
+    
+    var arr = [...phone_number];
+    var firstNum = phone_number.length - 4; //7
+    for (let index = 0; index < firstNum; index++) {
+        arr[index] = '*'
+    }
+    
+    console.log(arr.toString().replace(/,/g,''));
+
+
+    // return phone_number.slice(-4);
+
+}
+// function solution() {
+//     var answer = '';
+    
+//     var firstNum = phone_number.length - 4;
+//     // console.log(phone_number.slice(0,firstNum));
+//     var firstNum02 = phone_number.slice(0,firstNum);
+//     console.log(firstNum);
+//     // console.log(phone_number.replace(firstNum02,"*******"));
+//     return phone_number.replace(firstNum02,"*******");
+//     // return phone_number.slice(-4);
+//     return answer;
+// }
+
+
+
+solution();
