@@ -5,24 +5,32 @@ function getClosure() {
     };
 }
 var closure = getClosure();
-console.log(closure());
+// console.log(closure());
+document.querySelector('#example01').innerHTML = closure();
 
 
 var base = 'hello, ';
-function sayHelloTo(name) {
+function helloExample01(name) {
     var text = base + name;
     return function () {
-        console.log(text);
+        var container = document.getElementById("example02");
+        var content = document.createElement("p");
+        content.innerHTML = text;
+        container.appendChild(content);
+        // console.log(text);
     }
 }
-var hello1 = sayHelloTo('test1');
-var hello2 = sayHelloTo('test2');
-var hello3 = sayHelloTo('test3');
-var hello4 = sayHelloTo('test4');
+var hello1 = helloExample01('helloExample01-1');
+var hello2 = helloExample01('helloExample01-2');
+var hello3 = helloExample01('helloExample01-3');
 hello1();
 hello2();
 hello3();
-hello4();
+
+
+
+
+
 
 
 function hello(name) {
@@ -55,9 +63,34 @@ hello2();
 hello3();
 
 
-var index;
-for (let index = 0; index < 10; index++) {
-    setTimeout(() => {
-        console.log(index);
+var i;
+for (var i = 0; i < 10; i++) {
+    setTimeout(function () {
+        console.log(i);
     }, 100);
 }
+
+var index;
+for (var index = 0; index < 10; index++) {
+    (function (j) {
+        setTimeout(function() {
+            console.log(j);
+        }, 100);
+    })(index);
+}
+
+function helloExample07(name) {
+    var _name = name;
+    return function() {
+        console.log('hello, ' + _name);
+    }
+}
+var hello1 = helloExample07('test1');
+var hello2 = helloExample07('test2');
+var hello3 = helloExample07('test3');
+hello1();
+hello2();
+hello3();
+hello1 = null;
+hello2 = null;
+hello3 = null;
