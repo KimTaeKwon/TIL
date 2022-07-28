@@ -10,7 +10,7 @@ document.querySelector('#example01').innerHTML = closure();
 
 
 var base = 'hello, ';
-function helloExample01(name) {
+function helloExample02(name) {
     var text = base + name;
     return function () {
         var container = document.getElementById("example02");
@@ -20,28 +20,27 @@ function helloExample01(name) {
         // console.log(text);
     }
 }
-var hello1 = helloExample01('helloExample01-1');
-var hello2 = helloExample01('helloExample01-2');
-var hello3 = helloExample01('helloExample01-3');
+var hello1 = helloExample02('helloExample02-1');
+var hello2 = helloExample02('helloExample02-2');
+var hello3 = helloExample02('helloExample02-3');
 hello1();
 hello2();
 hello3();
 
 
-
-
-
-
-
-function hello(name) {
+function helloExample03(name) {
     this._name = name;
 }
-hello.prototype.say = function() {
-    console.log('hello, ' + this._name);
+helloExample03.prototype.say = function() {
+    var container = document.getElementById("example03");
+    var content = document.createElement("p");
+    content.innerHTML = 'hello, ' + this._name;
+    container.appendChild(content);
+    // console.log('hello, ' + this._name);
 }
-var hello1 = new hello('prototype1');
-var hello2 = new hello('prototype2');
-var hello3 = new hello('prototype3');
+var hello1 = new helloExample03('prototype1');
+var hello2 = new helloExample03('prototype2');
+var hello3 = new helloExample03('prototype3');
 hello1.say();
 hello2.say();
 hello3.say();
@@ -49,15 +48,21 @@ hello1._name = 'anonymous';
 hello1.say();
 
 
+
+
 function helloExample04(name) {
     var _name = name;
     return function() {
-        console.log('hello, ' + _name);
+        var container = document.getElementById("example04");
+        var content = document.createElement("p");
+        content.innerHTML = 'hello, ' + _name;
+        container.appendChild(content);
+        // console.log('hello, ' + _name);
     }
 }
-var hello1 = helloExample04('test1');
-var hello2 = helloExample04('test2');
-var hello3 = helloExample04('test3');
+var hello1 = helloExample04('helloExample04-1');
+var hello2 = helloExample04('helloExample04-2');
+var hello3 = helloExample04('helloExample04-3');
 hello1();
 hello2();
 hello3();
@@ -66,7 +71,11 @@ hello3();
 var i;
 for (var i = 0; i < 10; i++) {
     setTimeout(function () {
-        console.log(i);
+        var container = document.getElementById("example05");
+        var content = document.createElement("p");
+        content.innerHTML = i;
+        container.appendChild(content);
+        // console.log(i);
     }, 100);
 }
 
@@ -74,7 +83,11 @@ var index;
 for (var index = 0; index < 10; index++) {
     (function (j) {
         setTimeout(function() {
-            console.log(j);
+            var container = document.getElementById("example06");
+            var content = document.createElement("p");
+            content.innerHTML = j;
+            container.appendChild(content);
+            // console.log(j);
         }, 100);
     })(index);
 }
@@ -82,7 +95,11 @@ for (var index = 0; index < 10; index++) {
 function helloExample07(name) {
     var _name = name;
     return function() {
-        console.log('hello, ' + _name);
+        var container = document.getElementById("example07");
+        var content = document.createElement("p");
+        content.innerHTML = 'hello, ' + _name;
+        container.appendChild(content);
+        // console.log('hello, ' + _name);
     }
 }
 var hello1 = helloExample07('test1');
