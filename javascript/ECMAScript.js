@@ -52,8 +52,12 @@ const obj = {
     b: 20,
 }
 const newObj = {...obj};
- console.log(newObj);
+console.log(newObj);
 
- const arr = [1,2,3];
- const newArr = [...arr];
- console.log(newArr);
+const arr = [1,2,3];
+const newArr = [...arr];
+let example09Text = '';
+for (const value of newArr) {
+    example09Text += value + '</br>'
+}
+document.querySelector('#example09').innerHTML = example09Text;
