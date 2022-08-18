@@ -61,3 +61,36 @@ for (const value of newArr) {
     example09Text += value + '</br>'
 }
 document.querySelector('#example09').innerHTML = example09Text;
+
+
+function Fruit(name, color, price) {
+    this.name = name;
+    this.color = color;
+    this.price = price;
+}
+Fruit.prototype.taste = function() {
+    console.log(this.color + ' taste');
+}
+Fruit.prototype.quality = function() {
+    if (this.name == 'banana') {
+        console.log('very good');
+    } else {
+        console.log('good');
+    }
+}
+function Banana(name, color, price) {
+    Fruit.call(this, name, color, price);
+}
+function Tomato(name, color, price) {
+    Fruit.call(this, name, color, price);
+}
+Banana.prototype = Fruit.prototype;
+Tomato.prototype = Fruit.prototype;
+const banana = new Banana("banana", "yellow", 7000 + " won");
+const tomato = new Tomato("tomato", "red", 5000 + " won");
+banana.taste();
+tomato.taste();
+banana.quality();
+tomato.quality();
+
+// https://blog.naver.com/nicholasdw/222307745539
