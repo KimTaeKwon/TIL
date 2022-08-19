@@ -93,4 +93,47 @@ tomato.taste();
 banana.quality();
 tomato.quality();
 
+
+class FruitExample11 {
+    constructor(name, color, price){
+        this.name = name;
+        this.color = color;
+        this.price = price;
+    }
+    taste() {
+        console.log(this.color + ' taste');
+        document.querySelector('#example11').innerHTML = this.color + ' taste';
+    }
+    quality() {
+        if (this.name == 'banana') {
+            console.log('very good');
+        } else {
+            console.log('good');
+        }
+    }
+}
+// console.log(FruitExample11.prototype.taste);
+// console.log(FruitExample11.prototype.quality);
+const banana02 = new Banana("banana", "yellow", 7000 + " won");
+const tomato02 = new Tomato("tomato", "red", 5000 + " won");
+banana02.taste();
+tomato02.taste();
+
+class Banana02 extends FruitExample11 {
+    constructor(name, color, price){
+        super(name, color, price)
+    }
+}
+class Tomato02 extends FruitExample11 {
+    constructor(name, color, price){
+        super(name, color, price)
+    }
+}
+const banana03 = new Banana02("banana", "yellow", 7000 + " won");
+const tomato03 = new Tomato02("tomato", "red", 5000 + " won");
+banana03.taste();
+tomato03.taste();
+
+
 // https://blog.naver.com/nicholasdw/222307745539
+// https://blog.naver.com/dlgkstoa415/222728022531
