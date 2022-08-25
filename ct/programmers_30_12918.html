@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="Author" content="KimTaeKwon">
+    <meta name="Publisher" content="KimTaekwon">
+    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
+    <meta name="Copyright" content="webontab">
+    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
+    <meta property="og:site_name" content="웹온탭">
+    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
+    <meta property="og:url" content="http://www.webontab.net/">
+    <title>웹온탭 | 코딩테스트</title>
+    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
+    <link rel="canonical" href="http://www.webontab.net/">
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+    <h1>문자열 다루기 기본</h1>
+<pre>
+    문제 설명
+    문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요. 예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
+    
+    제한 사항
+    s는 길이 1 이상, 길이 8 이하인 문자열입니다.
+    s는 영문 알파벳 대소문자 또는 0부터 9까지 숫자로 이루어져 있습니다.
+    입출력 예
+    s	return
+    "a234"	false
+    "1234"	true
+</pre>
+
+    <div class="card">
+        <div id="example01"> </div>
+    </div>
+<script>
+
+// function solution(s) {
+//     if (isNaN(s) == true) {
+//         console.log('문자');
+//         return false;
+//     } else {
+//         console.log('숫자');
+
+//         return true;
+//     }
+// }
+
+// const solution = s => {
+//     var answer = isNaN(s) ? false : true;
+//     return answer;
+
+//     if (isNaN(s) == true) {
+//         return false;
+//     } else {
+//         return true;
+//     }
+// }
+
+function solution(s) {
+    const asd = Array.from(s);
+    console.log(asd);
+    for (let index = 0; index < asd.length; index++) {
+        console.log(isNaN(asd));
+        // const element = array[index];
+        
+    }
+}
+
+
+solution('12a4');
+</script>
+</body>
+</html>
