@@ -42,42 +42,54 @@
     <div class="card">
         <div id="example01"> </div>
     </div>
+
+    <!-- https://chanspark.github.io/2017/11/28/ES6-%EA%BF%80%ED%8C%81.html -->
 <script>
 
-// function solution(s) {
-//     if (isNaN(s) == true) {
-//         console.log('문자');
-//         return false;
-//     } else {
-//         console.log('숫자');
-
-//         return true;
-//     }
-// }
-
-// const solution = s => {
-//     var answer = isNaN(s) ? false : true;
-//     return answer;
-
-//     if (isNaN(s) == true) {
-//         return false;
-//     } else {
-//         return true;
-//     }
-// }
-
 function solution(s) {
-    const asd = Array.from(s);
-    console.log(asd);
-    for (let index = 0; index < asd.length; index++) {
-        console.log(isNaN(asd));
-        // const element = array[index];
-        
+    const arrayNum = Array.from(s);
+
+    // if (isNaN(s) == true) {
+    //     console.log('문자');
+    // } else if (arrayNum.includes('e')) {
+    //     console.log('문자');
+    // } else {
+    //     if (s.length != 4 && s.length != 6) {
+    //         console.log('over');
+    //     } else {
+    //         console.log('숫자');
+    //     }
+    // }
+
+    if (isNaN(s) == true) {
+        console.log('문자');
+    } else if (arrayNum.includes('e')) {
+        console.log('문자');
+    } else {
+        s.length != 4 && s.length != 6 ? console.log('over') : console.log('숫자');
     }
+
+    // if (isNaN(s) == true) {
+    //     return false;
+    // } else if (arrayNum.includes('e')) {
+    //     return false;
+    // } else {
+    //     if (s.length != 4 && s.length != 6) {
+    //         return false;
+    //     } else {
+    //         return true;
+    //     }
+    // }
+
+
+    console.log(s.length);
+
 }
 
 
-solution('12a4');
+solution('10e1');
+
+
 </script>
 </body>
 </html>
