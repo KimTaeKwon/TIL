@@ -48,27 +48,19 @@
 
 function solution(s) {
     const arrayNum = Array.from(s);
-
-    // if (isNaN(s) == true) {
-    //     console.log('문자');
-    // } else if (arrayNum.includes('e')) {
-    //     console.log('문자');
-    // } else {
-    //     if (s.length != 4 && s.length != 6) {
-    //         console.log('over');
-    //     } else {
-    //         console.log('숫자');
-    //     }
-    // }
-
     if (isNaN(s) == true) {
-        console.log('문자');
+        document.querySelector('#example01').innerHTML = 'false';
     } else if (arrayNum.includes('e')) {
-        console.log('문자');
+        document.querySelector('#example01').innerHTML = 'false';
     } else {
-        s.length != 4 && s.length != 6 ? console.log('over') : console.log('숫자');
+        if (s.length != 4 && s.length != 6) {
+            document.querySelector('#example01').innerHTML = 'over false';
+        } else {
+            document.querySelector('#example01').innerHTML = 'true';
+            console.log('true');
+        }
     }
-
+    
     // if (isNaN(s) == true) {
     //     return false;
     // } else if (arrayNum.includes('e')) {
@@ -80,16 +72,8 @@ function solution(s) {
     //         return true;
     //     }
     // }
-
-
-    console.log(s.length);
-
 }
-
-
 solution('10e1');
-
-
 </script>
 </body>
 </html>
