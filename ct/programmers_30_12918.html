@@ -16,51 +16,64 @@
     <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
     <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
     <meta property="og:url" content="http://www.webontab.net/">
-    <title>웹온탭 | ECMAScript</title>
+    <title>웹온탭 | 코딩테스트</title>
     <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
     <link rel="canonical" href="http://www.webontab.net/">
     <link rel="stylesheet" href="default.css">
-    <script async src="ECMAScript.js"></script>
 </head>
 <body>
-    <h1>ECMAScript</h1>
+    <h1>문자열 다루기 기본</h1>
+<pre>
+    문제 설명
+    문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요. 예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
+    
+    제한 사항
+    s는 길이 1 이상, 길이 8 이하인 문자열입니다.
+    s는 영문 알파벳 대소문자 또는 0부터 9까지 숫자로 이루어져 있습니다.
+    입출력 예
+    s	return
+    "a234"	false
+    "1234"	true
+</pre>
+
     <div class="card">
         <div id="example01"> </div>
     </div>
-    <div class="card">
-        <div id="example02"> </div>
-    </div>
-    <div class="card">
-        <div id="example03"> </div>
-    </div>
-    <div class="card">
-        <div id="example04"> </div>
-    </div>
-    <div class="card">
-        <div id="example05"> </div>
-    </div>
-    <div class="card">
-        <div id="example06"> </div>
-    </div>
-    <div class="card">
-        <div id="example07"> </div>
-    </div>
-    <div class="card">
-        <div id="example08"> </div>
-    </div>
-    <div class="card">
-        <div id="example09"> </div>
-    </div>
 
-    <div class="card">
-        <div id="example11"> </div>
-    </div>
+    <!-- https://chanspark.github.io/2017/11/28/ES6-%EA%BF%80%ED%8C%81.html -->
+<script>
 
-    <div class="card">
-        <div id="example12"> </div>
-    </div>
+function solution(s) {
+    const arrayNum = Array.from(s);
+    if (isNaN(s) == true) {
+        document.querySelector('#example01').innerHTML = 'false';
+    } else if (arrayNum.includes('e')) {
+        document.querySelector('#example01').innerHTML = 'false';
+    } else {
+        if (s.length != 4 && s.length != 6) {
+            document.querySelector('#example01').innerHTML = 'over false';
+        } else {
+            document.querySelector('#example01').innerHTML = 'true';
+            console.log('true');
+        }
+    }
+    
+    // if (isNaN(s) == true) {
+    //     return false;
+    // } else if (arrayNum.includes('e')) {
+    //     return false;
+    // } else {
+    //     if (s.length != 4 && s.length != 6) {
+    //         return false;
+    //     } else {
+    //         return true;
+    //     }
+    // }
+}
+solution('10e1');
+</script>
 </body>
 </html>

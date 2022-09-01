@@ -134,6 +134,15 @@ const tomato03 = new Tomato02("tomato", "red", 5000 + " won");
 banana03.taste();
 tomato03.taste();
 
+class example12Parent {
+    constructor() {
+        this.name = 'kim'
+    }
+}
+let example12child = new example12Parent();
+console.log(example12child);
+
+
 
 // https://blog.naver.com/nicholasdw/222307745539
 // https://blog.naver.com/dlgkstoa415/222728022531
