@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="Author" content="KimTaeKwon">
+    <meta name="Publisher" content="KimTaekwon">
+    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
+    <meta name="Copyright" content="webontab">
+    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
+    <meta property="og:site_name" content="웹온탭">
+    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
+    <meta property="og:url" content="http://www.webontab.net/">
+    <title>웹온탭 | 코딩테스트</title>
+    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
+    <link rel="canonical" href="http://www.webontab.net/">
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+    <h1>서울에서 김서방 찾기</h1>
+<pre>
+    문제 설명
+    String형 배열 seoul의 element중 "Kim"의 위치 x를 찾아, "김서방은 x에 있다"는 String을 반환하는 함수, solution을 완성하세요. seoul에 "Kim"은 오직 한 번만 나타나며 잘못된 값이 입력되는 경우는 없습니다.
+    
+    제한 사항
+    seoul은 길이 1 이상, 1000 이하인 배열입니다.
+    seoul의 원소는 길이 1 이상, 20 이하인 문자열입니다.
+    "Kim"은 반드시 seoul 안에 포함되어 있습니다.
+    입출력 예
+    seoul	return
+    ["Jane", "Kim"]	"김서방은 1에 있다"
+</pre>
+
+    <div class="card">
+        <div id="example01"> </div>
+    </div>
+<script>
+function solution(seoul) {
+    var answer = '김서방은 ' + seoul.indexOf('Kim') + '에 있다';
+    document.querySelector('#example01').innerHTML = answer;
+    return answer;
+}
+solution(["Jane", "Kim"]);
+</script>
+</body>
+</html>
