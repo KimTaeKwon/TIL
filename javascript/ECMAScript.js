@@ -144,5 +144,67 @@ console.log(example12child);
 
 
 
+const pets = [
+    {type: 'Dog', name: 'Max'},
+    {type: 'Cat', name: 'Karl'},
+    {type: 'Dog', name: 'Tommy'},
+]
+function findDog(name) {
+    for (let index = 0; index < pets.length; index++) {
+        if (pets[index].type === 'Dog' && pets[index].name === name) {
+            console.log(pets[index]);
+            return pets[index];
+        }
+    }
+}
+findDog('Tommy');
+
+pet = pets.find(pet => pet.type === 'Dog' && pet.name === 'Tommy');
+console.log(pet);
+
+
+function validate(values) {
+    if (!values.first)
+        return false;
+    if (!values.last)
+        return false;
+    return true;
+}
+console.log(validate({first:'Bruce', last:'Wayne'}));
+
+const schema = {
+    first: {
+        required:true
+    },
+    last: {
+        required:true
+    }
+}
+const validate_example18 = (schema, values) => {
+    for (const field in schema) {
+        if (schema[field].required) {
+            if (!values[field]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+console.log(validate_example18(schema, {first:'Bruce'}));
+console.log(validate_example18(schema, {first:'Bruce', last:'Wayne'}));
+
+
+
+console.log(Math.floor(4.9) === 4);
+console.log(~~4.9 === 4);
+
+
+
+
+
+
+
 // https://blog.naver.com/nicholasdw/222307745539
 // https://blog.naver.com/dlgkstoa415/222728022531
+
+// https://chanspark.github.io/2017/11/28/ES6-%EA%BF%80%ED%8C%81.html
