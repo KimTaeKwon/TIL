@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="Author" content="KimTaeKwon">
+    <meta name="Publisher" content="KimTaekwon">
+    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
+    <meta name="Copyright" content="webontab">
+    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
+    <meta property="og:site_name" content="웹온탭">
+    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
+    <meta property="og:url" content="http://www.webontab.net/">
+    <title>웹온탭 | 코딩테스트</title>
+    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
+    <link rel="canonical" href="http://www.webontab.net/">
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+    <h1>문자열 내 p와 y의 개수</h1>
+<pre>
+문제 설명
+대문자와 소문자가 섞여있는 문자열 s가 주어집니다. s에 'p'의 개수와 'y'의 개수를 비교해 같으면 True, 다르면 False를 return 하는 solution를 완성하세요. 'p', 'y' 모두 하나도 없는 경우는 항상 True를 리턴합니다. 단, 개수를 비교할 때 대문자와 소문자는 구별하지 않습니다.
+
+예를 들어 s가 "pPoooyY"면 true를 return하고 "Pyy"라면 false를 return합니다.
+
+제한사항
+문자열 s의 길이 : 50 이하의 자연수
+문자열 s는 알파벳으로만 이루어져 있습니다.
+입출력 예
+s	answer
+"pPoooyY"	true
+"Pyy"	false
+입출력 예 설명
+입출력 예 #1
+'p'의 개수 2개, 'y'의 개수 2개로 같으므로 true를 return 합니다.
+
+입출력 예 #2
+'p'의 개수 1개, 'y'의 개수 2개로 다르므로 false를 return 합니다.
+
+※ 공지 - 2021년 8월 23일 테스트케이스가 추가되었습니다.
+</pre>
+
+<div class="card">
+    <input type="text" id="input_example01">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
+</div>
+<script>
+// const solution = (s) => {
+//     var arr = s.split('');
+//     const result01 = arr.filter(word => word === "P" || word === "p");
+//     const result02 = arr.filter(word => word === "Y" || word === "y");
+//     if (result01.length == result02.length) {
+//         return true;
+//     } else {
+//         return false
+//     }
+// }
+// solution('pPoooyY');
+
+const solution = (s) => {
+    var s = document.querySelector('#input_example01').value;
+    var arr = s.split('');
+    const result01 = arr.filter(word => word === "P" || word === "p");
+    const result02 = arr.filter(word => word === "Y" || word === "y");
+    if (result01.length == result02.length) {
+        document.querySelector('#example01').innerHTML = 'true';
+    } else {
+        document.querySelector('#example01').innerHTML = 'false';
+    }
+}
+</script>
+</body>
+</html>
