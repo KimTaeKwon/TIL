@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head include-html="https://kimtaekwon.github.io/TIL/common/header.html">
+    <script src="https://kimtaekwon.github.io/TIL/common/include_html.js"></script>
+</head>
+<body>
+
+<h1>제일 작은 수 제거하기</h1>
+<pre>
+
+문제 설명
+정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요. 단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요. 예를들어 arr이 [4,3,2,1]인 경우는 [4,3,2]를 리턴 하고, [10]면 [-1]을 리턴 합니다.
+
+제한 조건
+arr은 길이 1 이상인 배열입니다.
+인덱스 i, j에 대해 i ≠ j이면 arr[i] ≠ arr[j] 입니다.
+입출력 예
+arr	return
+[4,3,2,1]	[4,3,2]
+[10]	[-1]
+</pre>
+
+<div class="card">
+    <input type="text" id="input_example01">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
+</div>
+<script>
+// function solution(arr) {
+//     // let arrCopy = [...arr];
+//     // arrCopy.sort(function compare(a,b){
+//     //     return a-b;
+//     // });
+//     // let minNum = arrCopy.shift();
+//     // let filtered = arr.filter(element => {
+//     //     return element !== minNum;
+//     // });
+//     // if (filtered.length == 0) {
+//     //     return [-1];
+//     // } else {
+//     //     return filtered;
+//     // }
+
+//     let minNum = Math.min(...arr);
+//     let filtered = arr.filter(element => {
+//         return element !== minNum;
+//     });
+//     if (filtered.length == 0) {
+//         return [-1];
+//     } else {
+//         return filtered;
+//     }
+// }
+// solution([4,3,2,1]);
+// // solution([10]);
+
+const solution = (arr) => {
+    var arr = document.querySelector('#input_example01').value;
+
+    var answer = [];
+    // arr = JSON.parse('['+arr+']');
+    arr = arr.split(',').map(Number);
+
+    let minNum = Math.min(...arr);
+    let filtered = arr.filter(element => {
+        return element !== minNum;
+    });
+    if (filtered.length == 0) {
+        document.querySelector('#example01').innerHTML = -1;
+    } else {
+        document.querySelector('#example01').innerHTML = filtered;
+    }
+}
+</script>
+
+<script>
+includeHTML();
+</script>
+
+</body>
+</html>
