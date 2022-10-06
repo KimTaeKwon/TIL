@@ -49,140 +49,46 @@ left	right	result
 </div>
 
 <script>
-// function solution(a, b) {
-//     var answer = 0;
-//     for (let index = 0; index < a.length; index++) {
-//         var sum = a[index]*b[index];
-//         answer += sum;
-//     }
-//     return answer;
-// }
-// // solution([1,2,3,4],[-3,-1,0,2]);
-// solution([-1,0,1],[1,0,-1]);
-
-
-// function solution(left, right) {
-//     var answer = 0;
-
-//     var arr =[];
-//     // console.log(left);
-//     // console.log(right);
-
-//     // for (let index = left; index <= right; index++) {
-//     //     const element = index;
-//     //     console.log(element);
-//     // }
-
-//     for (let index = left; index <= right; index++) {
-//         arr.push(index)
-//     }
-//     console.log(arr);
-
-//     for (let index = 1; index <= right; index++) {
-//         if (arr[0]%index == 0) {
-           
-//             return index.legnth;
-//         }
-        
-//         // arr.forEach(element => {
-//         //     if (element%index == 0) {
-//         //         console.log(element);
-//         //     }
-//         // });
-//     }
-    
-
-//     // arr.forEach(element => {
-//     //     element
-//     // });
-
-//     return answer;
-// }
-
-
-// function solution(left, right) {
-//     var answer = 0;
-
-//     var arr =[];
-//     var arr2 =[];
-
-
-//     for (let index = left; index <= right; index++) {
-//         arr.push({name:index,rest:right});
-
-//     }
-    
-//     console.log(arr);
-    
-//     arr.forEach(element => {
-//         if (element%index == 0) {
-//             console.log(element);
-//         }
-//     });
-
-    
-
-//     // arr.forEach(element => {
-//     //     element
-//     // });
-
-//     return answer;
-// }
-
-
-
-
-function solution(left, right) {
-    var answer = 0;
-
-    var arr =[];
-    var arr2 =[];
-
-
-    for (let index = left; index <= right; index++) {
-        arr.push(index);
-
-    }
-    console.log(arr);
-
-    var count = 0;
-    arr.forEach(element => {
-        for (let index = 1; index <= element; index++) {
-            if (element%index == 0) {
-                // console.log(element + ':' + index);
-                count += 1;
-                arr2.push({element,index});
-                // arr2.push(index);
-            }
+function divisors(num) {
+    let count = 0;
+    for(let i = 1; i <= num; i++) {
+        if(num % i == 0) {
+            count++;
         }
-        console.log(count);
-    });
-    // console.log(arr2);
-    
-    
-    
-
-    
-
-    return answer;
+    }
+    return count;
 }
 
-solution(13,17);
-
-
-
-
-// const solution = (a,b) => {
-//     a = document.querySelector('#input_example01').value.split(',').map(Number);
-//     b = document.querySelector('#input_example02').value.split(',').map(Number);
-
-//     var answer = 0;
-//     for (let index = 0; index < a.length; index++) {
-//         var sum = a[index]*b[index];
-//         answer += sum;
+// function solution(left, right) {
+//     let answer = 0;
+//     for(let i = left; i <= right; i++) {
+//         let count = divisors(i);
+//         if (count % 2 === 0) {
+//             answer += i;
+//         } else {
+//             answer -= i;
+//         }
 //     }
-//     document.querySelector('#example01').innerHTML = answer;
+//     return answer;
 // }
+
+// solution(13,17);
+
+
+const solution = (left, right) => {
+    left = Number(document.querySelector('#input_example01').value);
+    right = Number(document.querySelector('#input_example02').value);
+    let answer = 0;
+    for(let i = left; i <= right; i++) {
+        let count = divisors(i);
+        if (count % 2 === 0) {
+            answer += i;
+        } else {
+            answer -= i;
+        }
+    }
+    document.querySelector('#example01').innerHTML = answer;
+}
 </script>
 
 
