@@ -23,7 +23,11 @@ s	return
 </pre>
 
 <div class="card">
+    <input type="text" id="input_example01">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
 </div>
+
 <script>
 // function solution(s) {
 //     let arr = s.split(' ') // 공백을 기준으로 배열로 나눔
@@ -37,13 +41,28 @@ s	return
 //             else if(j % 2 == 1){
 //                 arr[i][j] = arr[i][j].toLowerCase()
 //             }
-            
 //         }
 //     }
 //     // 각 배열을 모두 join 해주어 return
-//     return arr.map(item => item.join('')).join(' ')   
+//     return arr.map(item => item.join('')).join(' ');
 // }
 
+const solution = (s) => {
+    s = document.querySelector('#input_example01').value;
+    let arr = s.split(' ');
+    arr = arr.map(item => item.split(''));
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr[i].length; j++){
+            if(j % 2 == 0){
+                arr[i][j] = arr[i][j].toUpperCase();
+            }
+            else if(j % 2 == 1){
+                arr[i][j] = arr[i][j].toLowerCase();
+            }
+        }
+    }
+    document.querySelector('#example01').innerHTML = arr.map(item => item.join('')).join(' ');
+}
 
 // function solution(s) {
 //     var answer = '';
@@ -64,20 +83,6 @@ s	return
 //     console.log(arr1.join(' '));
 //     return answer;
 // }
-
-
-function solution(s) {
-    var answer = '';
-    var arr = [...s];
-    console.log(arr);
-    return answer;
-}
-solution('  try  hello');
-
-// solution('  try   hello    world     ');
-// solution('  tRy hello  WORLD    ');
-// solution('       abc abcd abcde       ');
-
 </script>
 </body>
 </html>
