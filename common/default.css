@@ -1,34 +1,24 @@
-body {font-size: 14px; line-height: 1.5; background-color: #161b22; color: #fff;}
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-body: #161b22;
+    --color-border: #30363d;
+    --color-font-color: #c9d1d9;
+    --color-btn-bg: #21262d;
+}
+
+body {font-size: 14px; line-height: 1.5; background-color: var(--color-body); color: var(--color-font-color);}
 code {color: blue;}
 pre {white-space: pre-wrap;}
+input {width: 100%; max-width: 100%; background-color: var(--color-body); border: 1px solid var(--color-border); border-radius: 6px; color: inherit; padding: 0.6em;}
+button {color: var(--color-font-color); background-color: var(--color-btn-bg); border:1px solid var(--color-border); padding: 0.6em;}
 li + li {margin-top: 0.5em;}
-
-h1 {
-counter-reset: h2;
-}
-
-h2.numbered {
-counter-reset: h3;
-}
-
-h3.numbered {
-counter-reset: h4;
-}
-
-h2.numbered::before {
-content: counter(h2) ' ';
-counter-increment: h2;
-}
-
-h3.numbered::before {
-content: counter(h2) '.' counter(h3) ' ';
-counter-increment: h3;
-}
-
-h4.numbered::before {
-content: counter(h2) '.' counter(h3) '.' counter(h4) ' ';
-counter-increment: h4;
-}
-
-.card {border: 1px solid #30363d; border-radius: 2em; padding: 2em; overflow: hidden;}
+h1 { counter-reset: h2; }
+h2.numbered {counter-reset: h3;}
+h3.numbered {counter-reset: h4;}
+h2.numbered::before {content: counter(h2) ' '; counter-increment: h2;}
+h3.numbered::before {content: counter(h2) '.' counter(h3) ' '; counter-increment: h3;}
+h4.numbered::before {content: counter(h2) '.' counter(h3) '.' counter(h4) ' '; counter-increment: h4;}
+.card {border: 1px solid var(--color-border); border-radius: 6px; padding: 2em; overflow: hidden;}
 .card + .card {margin-top: 2em;}
+#example01 {text-decoration: underline;}
