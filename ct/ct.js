@@ -9,18 +9,7 @@ document.head.appendChild(CT_SCRIPT);
 
 let addInput = () => {
     let numId = 0;
-    // for (let i = 0; i < placeholder.length; i++) {
-    //     let input = document.createElement('input');
-    //     input.type = 'text';
-    //     numId += 1;
-    //     input.id = `input_example${numId}`;
-    //     input.placeholder = placeholder[i];
-    //     document.querySelector('.card').appendChild(input);
-    // }
-
     for (const item of placeholder) {
-        console.log(item);
-
         let input = document.createElement('input');
         input.type = 'text';
         numId += 1;
