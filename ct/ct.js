@@ -7,11 +7,25 @@ CT_SCRIPT.src = `programmers_30_${PARAM_NUM}.js`;
 CT_SCRIPT.id = PARAM_NUM;
 document.head.appendChild(CT_SCRIPT);
 
-let numId = 0;
-function addInput() {
-    let input = document.createElement('input');
-    numId += 1;
-    input.type = 'text';
-    input.id = `input_example${numId}`;
-    document.querySelector('.card').appendChild(input);
+let addInput = () => {
+    let numId = 0;
+    // for (let i = 0; i < placeholder.length; i++) {
+    //     let input = document.createElement('input');
+    //     input.type = 'text';
+    //     numId += 1;
+    //     input.id = `input_example${numId}`;
+    //     input.placeholder = placeholder[i];
+    //     document.querySelector('.card').appendChild(input);
+    // }
+
+    for (const item of placeholder) {
+        console.log(item);
+
+        let input = document.createElement('input');
+        input.type = 'text';
+        numId += 1;
+        input.id = `input_example${numId}`;
+        input.placeholder = item;
+        document.querySelector('.card').appendChild(input);
+    }
 }
