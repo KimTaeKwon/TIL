@@ -6,7 +6,6 @@ CT_SCRIPT.charset = 'utf-8';
 CT_SCRIPT.src = `programmers_30_${PARAM_NUM}.js`;
 CT_SCRIPT.id = PARAM_NUM;
 document.head.appendChild(CT_SCRIPT);
-
 let addInput = () => {
     let numId = 0;
     for (const item of placeholder) {
@@ -15,6 +14,12 @@ let addInput = () => {
         numId += 1;
         input.id = `input_example${numId}`;
         input.placeholder = item;
+        input.setAttribute('onkeyup','doSolution()');
         document.querySelector('.card').appendChild(input);
     }
+}
+const doSolution = () => {
+    if (window.event.keyCode == 13) {
+        return solution();
+   }
 }
