@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="Author" content="KimTaeKwon">
+    <meta name="Publisher" content="KimTaekwon">
+    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
+    <meta name="Copyright" content="webontab">
+    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
+    <meta property="og:site_name" content="웹온탭">
+    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
+    <meta property="og:url" content="http://www.webontab.net/">
+    <title>웹온탭 | 코딩테스트</title>
+    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
+    <link rel="canonical" href="http://www.webontab.net/">
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+    <h1>x만큼 간격이 있는 n개의 숫자</h1>
+<pre>
+문제 설명
+함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴해야 합니다. 다음 제한 조건을 보고, 조건을 만족하는 함수, solution을 완성해주세요.
+
+제한 조건
+x는 -10000000 이상, 10000000 이하인 정수입니다.
+n은 1000 이하인 자연수입니다.
+입출력 예
+x	n	answer
+2	5	[2,4,6,8,10]
+4	3	[4,8,12]
+-4	2	[-4, -8]
+</pre>
+
+<div class="card">
+    <input type="text" id="input_example01">
+    <input type="text" id="input_example02">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
+</div>
+<script>
+// function solution(x, n) {
+//     var answer = [];
+//     for (let index = 1; index < n+1; index++) {
+//         const element = x*[index];
+//         answer.push(element);
+//     }
+//     return answer;
+// }
+// solution(2,5);
+
+const solution = (x, n) => {
+    var x = Number(document.querySelector('#input_example01').value);
+    var n = Number(document.querySelector('#input_example02').value);
+    var answer = [];
+    for (let index = 1; index < n+1; index++) {
+        const element = x*[index];
+        answer.push(element);
+    }
+    document.querySelector('#example01').innerHTML = answer;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="Author" content="KimTaeKwon">
+    <meta name="Publisher" content="KimTaekwon">
+    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
+    <meta name="Copyright" content="webontab">
+    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
+    <meta property="og:site_name" content="웹온탭">
+    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
+    <meta property="og:url" content="http://www.webontab.net/">
+    <title>웹온탭 | 코딩테스트</title>
+    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
+    <link rel="canonical" href="http://www.webontab.net/">
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+    <h1>정수 내림차순으로 배치하기</h1>
+<pre>
+문제 설명
+함수 solution은 정수 n을 매개변수로 입력받습니다. n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요. 예를들어 n이 118372면 873211을 리턴하면 됩니다.
+
+제한 조건
+n은 1이상 8000000000 이하인 자연수입니다.
+입출력 예
+n	return
+118372	873211
+</pre>
+
+<div class="card">
+    <input type="text" id="input_example01">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
+</div>
+<script>
+// function solution(n) {
+//     var answer = 0;
+//     var arr = String(n).split('');
+//     var arr1 = [];
+//     arr.forEach(element => {
+//         answer = Number(element);
+//         arr1.push(answer);
+//     });
+//     arr1.sort(function(a,b) {
+//         return b-a;
+//     });
+//     return Number(arr1.join(''));
+// }
+// solution(118372);
+
+const solution = (n) => {
+    var n = document.querySelector('#input_example01').value;
+    var answer = 0;
+    var arr = String(n).split('');
+    var arr1 = [];
+    arr.forEach(element => {
+        answer = Number(element);
+        arr1.push(answer);
+    });
+    arr1.sort(function(a,b) {
+        return b-a;
+    });
+    document.querySelector('#example01').innerHTML = Number(arr1.join(''));
+}
+</script>
+</body>
+</html>

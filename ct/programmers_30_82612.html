@@ -1,31 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
-    <meta name="Author" content="KimTaeKwon">
-    <meta name="Publisher" content="KimTaekwon">
-    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
-    <meta name="Copyright" content="webontab">
-    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
-    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
-    <meta property="og:site_name" content="웹온탭">
-    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
-    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
-    <meta property="og:url" content="http://www.webontab.net/">
-    <title>웹온탭 | 코딩테스트</title>
-    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
-    <link rel="canonical" href="http://www.webontab.net/">
-    <link rel="stylesheet" href="default.css">
+<head include-html="https://kimtaekwon.github.io/TIL/common/header.html">
+    <script src="https://kimtaekwon.github.io/TIL/common/include_html.js"></script>
 </head>
+<script>
+includeHTML();
+</script>
 <body>
-    <h1>부족한 금액 계산하기</h1>
+<h1>부족한 금액 계산하기</h1>
 <pre>
 문제 설명
 새로 생긴 놀이기구는 인기가 매우 많아 줄이 끊이질 않습니다. 이 놀이기구의 원래 이용료는 price원 인데, 놀이기구를 N 번 째 이용한다면 원래 이용료의 N배를 받기로 하였습니다. 즉, 처음 이용료가 100이었다면 2번째에는 200, 3번째에는 300으로 요금이 인상됩니다.
@@ -44,71 +26,43 @@ price	money	count	result
 이용금액이 3인 놀이기구를 4번 타고 싶은 고객이 현재 가진 금액이 20이라면, 총 필요한 놀이기구의 이용 금액은 30 (= 3+6+9+12) 이 되어 10만큼 부족하므로 10을 return 합니다.
 </pre>
 
-    <div class="card">
-        <div id="example01"> </div>
-    </div>
-30 4
-45 5
-63 6
-84 7
-108 8
-135 9
-    <script>
+<div class="card">
+    <input type="text" id="input_example01" placeholder="이용료">
+    <input type="text" id="input_example02" placeholder="가지고 있는 금액">
+    <input type="text" id="input_example03" placeholder="N 번 째">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
+</div>
+<script>
 // function solution(price, money, count) {
 //     let sum = 0;
-//     for (let index = 1; index < count+1; index++) {
-//         sum += index;
+//     for (let i = 1; i <= count; i++) {
+//         var result = price*i;
+//         sum += result;
 //     }
-//     return sum*price-money;
+//     if (sum > money) {
+//         return sum-money;
+//     } else {
+//         return 0;
+//     }
 // }
-// let result = solution(3,20,2);
-// if (result > 0) {
-//     console.log(result);
-// } else {
-//     result = 0;
-//     console.log(result);
-// }
+// solution(3, 20, 7);
 
-
-
-// let result = solution(3,20,4);
-function solution(price, money, count) {
+const solution = (price, money, count) => {
+    price = Number(document.querySelector('#input_example01').value);
+    money = Number(document.querySelector('#input_example02').value);
+    count = Number(document.querySelector('#input_example03').value);
     let sum = 0;
-    for (let index = 1; index < count+1; index++) {
-        sum += index;
+    for (let i = 1; i <= count; i++) {
+        var result = price*i;
+        sum += result;
     }
-    var result = sum*price-money;
-    if (result > 0) {
-        console.log(result);
-        return result;
+    if (sum > money) {
+        document.querySelector('#example01').innerHTML = sum-money;
     } else {
-        result = 0;
-        console.log(result);
+        document.querySelector('#example01').innerHTML = 0;
     }
 }
-
-solution(3,20,8);
-        
-
-
-
-// function solution() {
-//     let price = 3;
-//     let money = 20;
-//     let count = 4;
-//     // let result;
-
-//     let sum = 0;
-//     for (let index = 1; index < count; index++) {
-//         var result1 = price*index;
-        
-//         // var result2 = [...result1];
-//         sum += index;
-//         console.log(sum);
-//     }
-//     // var result = price + money + count;
-// }
-//         solution();
-    </script>
+</script>
 </body>
 </html>
