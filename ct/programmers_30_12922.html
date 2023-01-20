@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head include-html="https://kimtaekwon.github.io/TIL/common/header.html">
+    <script src="https://kimtaekwon.github.io/TIL/common/include_html.js"></script>
+</head>
+<body>
+
+<h1>수박수박수박수박수박수?</h1>
+<pre>
+문제 설명
+길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수, solution을 완성하세요. 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
+
+제한 조건
+n은 길이 10,000이하인 자연수입니다.
+입출력 예
+n	return
+3	"수박수"
+4	"수박수박"
+</pre>
+
+<div class="card">
+    <input type="text" id="input_example01">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
+</div>
+
+<script>
+
+// function solution(n) {
+//     let answer = '';
+//     let arr = [];
+//     for (let index = 1; index <= n; index++) {
+//         if (index%2 == 0) {
+//             arr.push('박');
+//         } else {
+//             arr.push('수');
+//         }
+//     }
+//     answer = arr.join('');
+//     return answer;
+//     console.log(arr.join(''));
+// }
+// solution(4);
+
+const solution = (n) => {
+    n = document.querySelector('#input_example01').value;
+    let answer = '';
+    let arr = [];
+    for (let index = 1; index <= n; index++) {
+        if (index%2 == 0) {
+            arr.push('박');
+        } else {
+            arr.push('수');
+        }
+    }
+    answer = arr.join('');
+    document.querySelector('#example01').innerHTML = answer;
+}
+</script>
+
+<script>
+includeHTML();
+</script>
+
+</body>
+</html>

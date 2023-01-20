@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head include-html="https://kimtaekwon.github.io/TIL/common/header.html">
+    <script src="https://kimtaekwon.github.io/TIL/common/include_html.js"></script>
+</head>
+<script>
+includeHTML();
+</script>
+<body>
+<h1>최대공약수와 최소공배수</h1>
+<pre>
+문제 설명
+두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.
+
+제한 사항
+두 수는 1이상 1000000이하의 자연수입니다.
+입출력 예
+n	m	return
+3	12	[3, 12]
+2	5	[1, 10]
+입출력 예 설명
+입출력 예 #1
+위의 설명과 같습니다.
+
+입출력 예 #2
+자연수 2와 5의 최대공약수는 1, 최소공배수는 10이므로 [1, 10]을 리턴해야 합니다.
+</pre>
+
+<div class="card">
+    <input type="text" id="input_example01" placeholder="이용료">
+    <input type="text" id="input_example02" placeholder="가지고 있는 금액">
+    <input type="text" id="input_example03" placeholder="N 번 째">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
+</div>
+<script>
+// function solution(price, money, count) {
+//     let sum = 0;
+//     for (let i = 1; i <= count; i++) {
+//         var result = price*i;
+//         sum += result;
+//     }
+//     if (sum > money) {
+//         return sum-money;
+//     } else {
+//         return 0;
+//     }
+// }
+// solution(3, 20, 7);
+
+function solution(n, m) {
+    var answer = [];
+
+    // console.log(n);
+    // console.log(m);
+
+    var arr1 =[];
+    var arr2 =[];
+
+    for (let i = 1; i <= n; i++) {
+        if (n%i == 0) {
+            arr1.push(i);
+        }
+    }
+    for (let i = 1; i <= m; i++) {
+        if (m%i == 0) {
+            arr1.push(i);
+        }
+    }
+    console.log(arr1);
+
+    // for (let i = 1; i < n; i++) {
+    //     if (n%i == 0) {
+    //         arr2.push(i);
+    //     }
+    // }
+    // for (let i = 1; i < m; i++) {
+    //     if (m%i == 0) {
+    //         arr2.push(i);
+    //     }
+    // }
+    // console.log(arr2);
+
+    // for (let i = 1; i < 1000000; i++) {
+    //     if (n*i == m*i) {
+    //         console.log(i);
+    //     }
+        
+    // }
+
+    for (let i = 1; i < m; i++) {
+        if (m%i == 0) {
+            arr2.push(i);
+        }
+    }
+    console.log('arr2 : '+arr2);
+
+
+
+
+    function findDuplicates(arr) {
+        let distinct = new Set(arr);
+        let filtered = arr.filter(item => {
+            if (distinct.has(item)) {
+                distinct.delete(item);
+            } else {
+                return item;
+            }
+        });
+        return [...new Set(filtered)] 
+    }
+    console.log(findDuplicates(arr1));
+
+
+
+    return answer;
+}
+// solution(30, 36);
+solution(3, 12);
+// solution(1, 10);
+
+
+// const solution = (price, money, count) => {
+//     price = Number(document.querySelector('#input_example01').value);
+//     money = Number(document.querySelector('#input_example02').value);
+//     count = Number(document.querySelector('#input_example03').value);
+//     let sum = 0;
+//     for (let i = 1; i <= count; i++) {
+//         var result = price*i;
+//         sum += result;
+//     }
+//     if (sum > money) {
+//         document.querySelector('#example01').innerHTML = sum-money;
+//     } else {
+//         document.querySelector('#example01').innerHTML = 0;
+//     }
+// }
+</script>
+</body>
+</html>

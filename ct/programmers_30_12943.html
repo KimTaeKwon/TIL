@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <meta name="Author" content="KimTaeKwon">
+    <meta name="Publisher" content="KimTaekwon">
+    <meta name="Reply-To(Email)" content="kimtaekwon@ymail.com">
+    <meta name="Copyright" content="webontab">
+    <meta name="Description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta name="keyword" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 퍼블리싱, 프론트엔드, 웹접근성, 웹표준, html, html5, css, css3, jquery, 크로스 브라우징, Cross Browsing, Web standard technology, Publisher, Publishing">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="웹온탭 | 웹표준 웹접근성">
+    <meta property="og:site_name" content="웹온탭">
+    <meta property="og:description" content="웹온탭, 홈페이지제작, 웹사이트제작, 모바일웹, 홈페이지, 웹사이트, 유지보수, 쇼핑몰제작, 메이크샵, 퍼블리셔, 프론트엔드, 웹접근성, 웹표준">
+    <meta property="og:image" content="http://www.webontab.net/i/img/bg/logo_.png">
+    <meta property="og:url" content="http://www.webontab.net/">
+    <title>웹온탭 | 코딩테스트</title>
+    <link rel="icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://www.webontab.net/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.webontab.net/i/img/bg/mobile_120120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.webontab.net/i/img/bg/mobile_180180.png">
+    <link rel="canonical" href="http://www.webontab.net/">
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+    <h1>콜라츠 추측</h1>
+<pre>
+문제 설명
+1937년 Collatz란 사람에 의해 제기된 이 추측은, 주어진 수가 1이 될 때까지 다음 작업을 반복하면, 모든 수를 1로 만들 수 있다는 추측입니다. 작업은 다음과 같습니다.
+
+1-1. 입력된 수가 짝수라면 2로 나눕니다. 
+1-2. 입력된 수가 홀수라면 3을 곱하고 1을 더합니다. 
+2. 결과로 나온 수에 같은 작업을 1이 될 때까지 반복합니다. 
+예를 들어, 주어진 수가 6이라면 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1 이 되어 총 8번 만에 1이 됩니다. 위 작업을 몇 번이나 반복해야 하는지 반환하는 함수, solution을 완성해 주세요. 단, 주어진 수가 1인 경우에는 0을, 작업을 500번 반복할 때까지 1이 되지 않는다면 –1을 반환해 주세요.
+
+제한 사항
+입력된 수, num은 1 이상 8,000,000 미만인 정수입니다.
+입출력 예
+n	result
+6	8
+16	4
+626331	-1
+입출력 예 설명
+입출력 예 #1
+문제의 설명과 같습니다.
+
+입출력 예 #2
+16 → 8 → 4 → 2 → 1 이 되어 총 4번 만에 1이 됩니다.
+
+입출력 예 #3
+626331은 500번을 시도해도 1이 되지 못하므로 -1을 리턴해야 합니다.
+
+※ 공지 - 2022년 6월 10일 다음과 같이 지문이 일부 수정되었습니다.
+
+주어진 수가 1인 경우에 대한 조건 추가
+</pre>
+
+<div class="card">
+    <input type="text" id="input_example01">
+    <div id="example01"> </div>
+    <button onclick="solution()">submit</button>
+</div>
+<script>
+// function solution(num) {
+//     let i = 1;
+//     if (num == 1) {
+//         return 0;
+//     } else {
+//         while(num != 1) {
+//             if (num%2 == 0) {
+//                 num = num/2;
+//             } else {
+//                 num = num*3+1;
+//             }
+//             if(num == 1)  {
+//                 if (i > 500) {
+//                     return -1;
+//                 } else {
+//                     return i;
+//                 }
+//                 break;
+//             }
+//             i++;
+//         }
+//     }
+// }
+// solution(1);
+
+const solution = (num) => {
+    var num = Number(document.querySelector('#input_example01').value);
+    let i = 1;
+    if (num == 1) {
+        document.querySelector('#example01').innerHTML = '0';
+    } else {
+        while(num != 1) {
+            if (num%2 == 0) {
+                num = num/2;
+            } else {
+                num = num*3+1;
+            }
+            if(num == 1) {
+                if (i > 500) {
+                    document.querySelector('#example01').innerHTML = '-1';
+                } else {
+                    document.querySelector('#example01').innerHTML = i;
+                }
+                break;
+            }
+            i++;
+        }
+    }
+}
+</script>
+</body>
+</html>
