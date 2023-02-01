@@ -1,26 +1,19 @@
-function Item(title, price) {
-    this.title = title;
-    this.price = price;
-    this.showPrice = function () {
-        console.log(`${title} 가격은 ${price}원 입니다.`);
-    }
-}
 
-const item1 = new Item("인형", 3000);
-const item2 = new Item("가방", 5000);
-const item3 = new Item("지갑", 7000);
+document.querySelector('#example01').innerHTML = `
+<div><span id="order">1</span>번째 참가자</div>
+제시어<input type="text">
+<button>입력</button>
+`;
 
-console.log(item1,item2,item3);
-item3.showPrice();
-
-document.querySelector('#example01').innerHTML = `${item1.title} 가격은 ${item1.price}원 입니다.`;
+prompt('몇 명이 참가하나요?');
 
 var temp = document.createElement("div");
 temp.innerHTML = `
-<details open>
+<details>
 <summary>생성자 함수</summary>
 <pre>
-         ↱ 첫 글자는 대문자로
+상품 객체를 생성해보자.
+
 function Item(title, price) {
 
     // this = {}; new 호출시 자동
@@ -39,9 +32,10 @@ function Item(title, price) {
 const item1 = new Item("인형", 3000);
 const item2 = new Item("가방", 5000);
 const item3 = new Item("지갑", 7000);
-               ↳ 생성자 함수는 꼭 new를 사용
+// 생성자 함수는 꼭 new를 사용
 console.log(item1,item2,item3);
 item3.showPrice();
+
 </pre>
 </details>
 `;
